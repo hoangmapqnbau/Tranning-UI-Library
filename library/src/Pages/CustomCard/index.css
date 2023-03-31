@@ -1,0 +1,63 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 2rem;
+}
+
+.card-wrapper {
+    width: 350px;
+    border: 1px solid #3f3f3f;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 26);
+    border-radius: 5px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 20rem));
+    gap:1rem;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.header-card .title-card{
+    margin-top: 10px;
+}
+
+.body-card img{
+    height: 12rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+.body-card .content-card {
+    padding: 1rem;
+}
+
+.footer-card .card-button{
+    width: 90%;
+    padding: 1rem;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1rem;
+    margin: 1rem;
+    border: 2px solid red;
+    background: transparent;
+    color: red;
+    border-radius: 5px;
+    transition: background 200ms ease-in, color 200ms ease-in;
+    cursor: pointer;
+}
+
+.card-wrapper:hover {
+    transform: scale(1.02);
+}
+
+.card-wrapper:hover .card-button {
+    background: red;
+    color: white;
+}
+
