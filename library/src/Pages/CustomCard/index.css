@@ -10,31 +10,49 @@ body {
     margin: 2rem;
 }
 
-.card-wrapper {
+.wrapper {
+    gap: 2rem;
+    justify-content: center;
+    float: left;
+    margin-left: 100px;
+  }
+
+.card {
     width: 350px;
-    border: 1px solid #3f3f3f;
+    min-height: 100px;
+    max-height: 400px;
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 26);
     border-radius: 5px;
     cursor: pointer;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 20rem));
-    gap:1rem;
-    justify-content: center;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between;
+    transition: transform 200ms ease-in;
+    
 }
 
-.header-card .title-card{
+.wrapper .card .header-card .title-card{
     margin-top: 10px;
+    text-align: center;
+    margin-bottom: 5px;
 }
 
-.body-card img{
-    height: 12rem;
+.wrapper .card .body-card img{
+    height: 10rem;
     width: 100%;
     object-fit: cover;
 }
 
-.body-card .content-card {
+.wrapper .card .body-card .content-card{
     padding: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.wrapper .card .body-card .footer-card {
+    display: flex;
+    flex-direction: row;
 }
 
 .footer-card .card-button{
@@ -48,15 +66,18 @@ body {
     background: transparent;
     color: red;
     border-radius: 5px;
-    transition: background 200ms ease-in, color 200ms ease-in;
     cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
-.card-wrapper:hover {
+.card:hover {
     transform: scale(1.02);
 }
 
-.card-wrapper:hover .card-button {
+.card-button:hover  {
     background: red;
     color: white;
 }
