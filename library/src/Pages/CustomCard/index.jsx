@@ -2,24 +2,15 @@ import React from "react";
 import "./index.css";
 
 const CustomCard = (props) => {
-
-
   const handleClick = (action) => {
-    // if (action.path) {
-    //   window.location.href = action.path;
-    // }
-    setTimeout(function(){
-      if (action.path) {
-        window.location.href = action.path;
-      }
-    },1000);
-    // else if (action.action && typeof action.action == "function"){
-    //   action.action();
-    // }
-    if (action.action && typeof action.action == "function"){
+    if (action.action && typeof action.action == "function") {
       action.action();
     }
-  }
+
+    if (action.path) {
+      window.location.href = action.path;
+    }
+  };
 
   return (
     <>
@@ -27,7 +18,10 @@ const CustomCard = (props) => {
         props.dataCard.map((card, index) => {
           return (
             <div className="wrapper" key={index}>
-              <div className="card">
+              <div
+                className="card"
+                style={{ width: card.width ? card.width + "px" : "350px" }}
+              >
                 <div className="header-card">
                   <h2 className="title-card">{card.headerTitle}</h2>
                 </div>

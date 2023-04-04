@@ -2,7 +2,6 @@ import React from "react";
 import CustomCard from "./Pages/CustomCard";
 import img from "./Pages/CustomCard/paella-398968__480.jpg";
 import DropDownList from "./Pages/DropDownList/DropDownList";
-
 function App() {
   const dataCard = [
     {
@@ -18,6 +17,7 @@ function App() {
           text: "Text of action card ",
         },
       ],
+      width: 600,
     },
     {
       id: "1",
@@ -55,7 +55,6 @@ function App() {
     {
       id: "0",
       label: "Chair",
-      value: "Chair",
     },
     {
       id: "1",
@@ -78,12 +77,65 @@ function App() {
       value: "Keyboard",
     },
   ];
+  const countries = [
+    "Albania",
+    "Andorra",
+    "Armenia",
+    "Austria",
+    "Azerbaijan",
+    "Belarus",
+    "Belgium",
+    "Bosnia & Herzegovina",
+    "Bulgaria",
+    "Croatia",
+    "Cyprus",
+    "Czech Republic",
+    "Denmark",
+    "Estonia",
+    "Finland",
+    "France",
+    "Georgia",
+    "Germany",
+    "Greece",
+    "Hungary",
+    "Iceland",
+    "Ireland",
+    "Italy",
+    "Kosovo",
+    "Latvia",
+    "Liechtenstein",
+    "Lithuania",
+    "Luxembourg",
+    "Macedonia",
+    "Malta",
+    "Moldova",
+    "Monaco",
+    "Montenegro",
+    "Netherlands",
+    "Norway",
+    "Poland",
+    "Portugal",
+    "Romania",
+    "Russia",
+    "San Marino",
+    "Serbia",
+    "Slovakia",
+    "Slovenia",
+    "Spain",
+    "Sweden",
+    "Switzerland",
+    "Turkey",
+    "Ukraine",
+    "United Kingdom",
+    "Vatican City",
+  ];
   return (
+    <> 
+    {/* <CustomCard dataCard={dataCard} /> */}
     <div className="App">
-      {/* <CustomCard dataCard={dataCard} /> */}
-
-      <DropDownList dataDropdownList={dataDropdownList} title="Your choice is:" label="Please select your choice..."/>
+      <DropDownList type="autocomplete" dataDropdownList={dataDropdownList} themeColor="yellow" dataAutoComplete={countries}/>
     </div>
+    </>
   );
 }
 
