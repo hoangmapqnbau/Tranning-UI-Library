@@ -1,30 +1,61 @@
 import React from "react";
 import "./index.css";
-//import { Link } from "react-router-dom";
-//import Button from "./Button";
 
 const CustomCard = (props) => {
+
+
+  const handleClick = (action) => {
+    // if (action.path) {
+    //   window.location.href = action.path;
+    // }
+    setTimeout(function(){
+      if (action.path) {
+        window.location.href = action.path;
+      }
+    },1000);
+    // else if (action.action && typeof action.action == "function"){
+    //   action.action();
+    // }
+    if (action.action && typeof action.action == "function"){
+      action.action();
+    }
+  }
+
   return (
-    <div className="card-wrapper">
-      <div className="header-card">
-        <h2 className="title-card">{props.headerTitle}</h2>
-      </div>
-      <div className="body-card">
-        <img src={props.img} alt="Paella" />
-        <p className="content-card">{props.contentCard}</p>
-      </div>
-      <div className="footer-card">
-        <button
-          className="card-button"
-          type="button"
-          onClick= {()=>{
-            window.location.href = props.link
-          }}
-        >
-          {props.nameButton}
-        </button>
-      </div>
-    </div>
+    <>
+      {props.dataCard &&
+        props.dataCard.map((card, index) => {
+          return (
+            <div className="wrapper" key={index}>
+              <div className="card">
+                <div className="header-card">
+                  <h2 className="title-card">{card.headerTitle}</h2>
+                </div>
+                <div className="body-card">
+                  {card.imageCard && <img src={card.imageCard} alt="Paella" />}
+                  <p className="content-card"> {card.contentCard}</p>
+                </div>
+                <div className="footer-card">
+                  {card.actions &&
+                    card.actions.map((action, index) => {
+                      console.log(action, index);
+                      return (
+                        <div className="action-card" key={index}>
+                          <button
+                            className="card-button"
+                            onClick={() => handleClick(action)}
+                          >
+                            {action.text}
+                          </button>
+                        </div>
+                      );
+                    })}
+                </div>
+              </div>
+            </div>
+          );
+        })}
+    </>
   );
 };
 export default CustomCard;
